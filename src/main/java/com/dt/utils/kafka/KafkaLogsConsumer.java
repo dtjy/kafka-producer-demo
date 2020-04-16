@@ -49,12 +49,12 @@ public class KafkaLogsConsumer {
 
     @KafkaListener(groupId = "logs-consumer-group",
 //            topics = {TEST_TOPIC},
-            containerFactory = "batchContainerFactory" //,
-//            topicPartitions = {
-//                    @TopicPartition(topic = TEST_TOPIC,partitions = {"1","3"}),
-//                    @TopicPartition(topic = TEST_TOPIC,partitions = {"0","2"}
+            containerFactory = "batchContainerFactory" ,
+            topicPartitions = {
+                    @TopicPartition(topic = TEST_TOPIC,partitions = {"1","3"}),
+                    @TopicPartition(topic = TEST_TOPIC,partitions = {"0","2"}
 //                            partitionOffsets = @PartitionOffset(partition = "2",initialOffset = "100")
-//                    )}
+                    )}
             )
     public void batchListener(/* @Payload */  List<ConsumerRecord<String,String>> data //,
 //                              @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) Integer key,
