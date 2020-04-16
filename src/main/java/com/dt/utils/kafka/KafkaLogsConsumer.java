@@ -56,25 +56,25 @@ public class KafkaLogsConsumer {
 //                            partitionOffsets = @PartitionOffset(partition = "2",initialOffset = "100")
 //                    )}
             )
-    public void batchListener(/* @Payload */  List<ConsumerRecord<String,String>> data //,
-//                              @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) Integer key,
-//                              @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
-//                              @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
-//                              @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts,
-//                              @Header(KafkaHeaders.GROUP_ID) String groupId
+    public void batchListener(@Payload String data,
+                              @Header(KafkaHeaders.RECEIVED_MESSAGE_KEY) Integer key,
+                              @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition,
+                              @Header(KafkaHeaders.RECEIVED_TOPIC) String topic,
+                              @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts,
+                              @Header(KafkaHeaders.GROUP_ID) String groupId
                             ) {
-        LOGGER.info("test review:{}",data.size());
-//        LOGGER.info("topic.quick.anno receive : \n"+
-//                "data : "+data+"\n"+
-//                "key : "+key+"\n"+
-//                "partitionId : "+partition+"\n"+
-//                "topic : "+topic+"\n"+
-//                "groupId : "+groupId+"\n"+
-//                "timestamp : "+ts+"\n"
-//        );
-        for (ConsumerRecord<String,String> record : data) {
-            LOGGER.info(">>>>>>>>>>>>>>>>>>{}-partition:{}-offset{}",record.value(),record.partition(),record.offset());
-        }
+//        LOGGER.info("test review:{}",data.size());
+        LOGGER.info("topic.quick.anno receive : \n"+
+                "data : "+data+"\n"+
+                "key : "+key+"\n"+
+                "partitionId : "+partition+"\n"+
+                "topic : "+topic+"\n"+
+                "groupId : "+groupId+"\n"+
+                "timestamp : "+ts+"\n"
+        );
+//        for (ConsumerRecord<String,String> record : data) {
+//            LOGGER.info(">>>>>>>>>>>>>>>>>>{}-partition:{}-offset{}",record.value(),record.partition(),record.offset());
+//        }
     }
 
 }
